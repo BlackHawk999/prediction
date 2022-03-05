@@ -5,7 +5,10 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "quizbody"
+};
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+</style>

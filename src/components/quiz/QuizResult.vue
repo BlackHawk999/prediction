@@ -31,7 +31,10 @@
         </p>
       </div>
       <div class="quiz-result-call">
-        <button class="quiz-result-call__button delay--100" @click="$emit('call')">
+        <button
+          class="quiz-result-call__button delay--100"
+          @click="$emit('call')"
+        >
           Позвонить и прослушать
         </button>
       </div>
@@ -55,8 +58,8 @@ export default {
 .quiz-result {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-width: 450px;
+  width: auto;
+  max-width: 500px;
   min-width: 300px;
 
   &-top {

@@ -1,7 +1,7 @@
 <template>
   <div class="prediction">
     <div class="container">
-      <div class="prediction-wrapper">
+      <div class="prediction-top-wrapper">
         <div class="prediction-title">
           <p class="prediction__title subtext">Онлайн предсказание</p>
         </div>
@@ -17,6 +17,8 @@
             а также предшествующую этому событию причину
           </p>
         </div>
+      </div>
+      <div class="prediction-main-wrapper">
         <div class="prediction-body">
           <div class="prediction-body-wrapper-img">
             <img src="@/assets/image/prediction-img.png" alt="" />
@@ -39,12 +41,26 @@ export default {
 
 <style lang="scss" scoped>
 .prediction {
-  padding: 100px 0 0 0;
+  padding: 50px 0 0 0;
 
-  &-wrapper {
+  &-top-wrapper {
+    padding: 0 30px;
+  }
+
+  &-main-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  &-top-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-title {
+    margin-bottom: 70px;
   }
 
   &-top {
@@ -118,7 +134,7 @@ export default {
     padding: 50px 0 0 0;
 
     &-top {
-    padding: 58px 19px 32px 19px;
+      padding: 58px 19px 32px 19px;
     }
 
     &-body {

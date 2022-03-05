@@ -18,10 +18,14 @@
             Вас беспокоит вопрос о том, когда Вы покинете этот Мир и при каких
             обстоятельствах?
           </p>
-          <div class="intro-footer">
+        </div>
+        <div class="intro-footer">
+          <div class="intro-button-wrapper">
             <button class="intro-footer__button button-orange delay--100">
               Да
             </button>
+          </div>
+          <div class="intro-button-wrapper">
             <button class="intro-footer__button button-orange delay--300">
               Нет
             </button>
@@ -45,6 +49,11 @@ export default {
   background-position: right center;
   background-size: 100% auto;
   min-height: 80vh;
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 
   &-top {
     padding: 25px 0;
@@ -114,8 +123,15 @@ export default {
   &-footer {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 34px;
     margin-bottom: 34px;
+  }
+
+  &-button-wrapper {
+    width: auto;
+    max-width: 600px;
+    min-width: 300px;
   }
 }
 

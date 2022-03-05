@@ -1,22 +1,28 @@
 <template>
   <div class="quiz">
     <QuizBody v-if="step === 1">
-      <div class="quiz-body">
-        <h4 class="quiz-body__title title">Боитесь ли вы умереть?</h4>
-        <button
-          class="quiz-body__button button-orange delay--100"
-          @click="step = 2"
-        >
-          Да
-        </button>
-        <button
-          class="quiz-body__button button-orange delay--300"
-          @click="step = 2"
-        >
-          Нет
-        </button>
-        <Footer />
+      <div class="quiz-wrapper">
+        <div class="quiz-title-wrapper">
+          <h4 class="quiz__title title">Боитесь ли вы умереть?</h4>
+        </div>
+        <div class="quiz-button-wrapper">
+          <button
+            class="quiz__button button-orange delay--100"
+            @click="step = 2"
+          >
+            Да
+          </button>
+        </div>
+        <div class="quiz-button-wrapper">
+          <button
+            class="quiz__button button-orange delay--300"
+            @click="step = 2"
+          >
+            Нет
+          </button>
+        </div>
       </div>
+      <FooterView />
     </QuizBody>
     <QuizBody v-if="step === 2">
       <div class="quiz-top">
@@ -31,35 +37,42 @@
           </div>
         </div>
       </div>
-      <div class="quiz-body">
-        <h4 class="quiz-body__title title">
-          Когда Вы чувствуете себя наиболее комфортно?
-        </h4>
-        <button
-          class="quiz-body__button button-orange delay--100"
-          @click="step = 3"
-        >
-          Утро
-        </button>
-        <button
-          class="quiz-body__button button-orange delay--300"
-          @click="next"
-        >
-          День
-        </button>
-        <button
-          class="quiz-body__button button-orange delay--100"
-          @click="step = 3"
-        >
-          Вечер
-        </button>
-        <button
-          class="quiz-body__button button-orange delay--300"
-          @click="step = 3"
-        >
-          Ночь
-        </button>
-        <div class="quiz-body-img">
+      <div class="quiz-wrapper">
+        <div class="quiz-title-wrapper">
+          <h4 class="quiz__title title">
+            Когда Вы чувствуете себя наиболее комфортно?
+          </h4>
+        </div>
+        <div class="quiz-button-wrapper">
+          <button
+            class="quiz__button button-orange delay--100"
+            @click="step = 3"
+          >
+            Утро
+          </button>
+        </div>
+        <div class="quiz-button-wrapper">
+          <button class="quiz__button button-orange delay--300" @click="next">
+            День
+          </button>
+        </div>
+        <div class="quiz-button-wrapper">
+          <button
+            class="quiz__button button-orange delay--100"
+            @click="step = 3"
+          >
+            Вечер
+          </button>
+        </div>
+        <div class="quiz-button-wrapper">
+          <button
+            class="quiz__button button-orange delay--300"
+            @click="step = 3"
+          >
+            Ночь
+          </button>
+        </div>
+        <div class="quiz-img">
           <img src="@/assets/image/round.png" alt="" />
         </div>
       </div>
@@ -77,24 +90,22 @@
           </div>
         </div>
       </div>
-      <div class="quiz-body">
-        <h4 class="quiz-body__title title">Укажите свою дату рождения:</h4>
-        <div class="quiz-input">
-          <input type="number" placeholder="День" />
+      <div class="quiz-wrapper">
+        <div class="quiz-title-wrapper">
+          <h4 class="quiz__title title">Укажите свою дату рождения:</h4>
         </div>
-        <div class="quiz-input">
-          <input type="month" />
+        <div class="quiz-input-wrapper">
+          <input class="quiz__input" type="date" placeholder="Год" required />
         </div>
-        <div class="quiz-input">
-          <input type="number" placeholder="Год" />
+        <div class="quiz-button-wrapper">
+          <button
+            class="quiz__button button-orange delay--300"
+            @click="step = 4"
+          >
+            Далее
+          </button>
         </div>
-        <button
-          class="quiz-body__button button-orange delay--300"
-          @click="step = 4"
-        >
-          Далее
-        </button>
-        <div class="quiz-body-img">
+        <div class="quiz-img">
           <img src="@/assets/image/round.png" alt="" />
         </div>
       </div>
@@ -112,27 +123,35 @@
           </div>
         </div>
       </div>
-      <div class="quiz-body">
-        <h4 class="quiz-body__title title">Снятся ли Вам умершие люди?</h4>
-        <button
-          class="quiz-body__button button-orange delay--100"
-          @click="step = 5"
-        >
-          Да
-        </button>
-        <button
-          class="quiz-body__button button-orange delay--300"
-          @click="step = 5"
-        >
-          Нет
-        </button>
-        <button
-          class="quiz-body__button button-orange delay--200"
-          @click="step = 5"
-        >
-          Иногда
-        </button>
-        <div class="quiz-body-img">
+      <div class="quiz-wrapper">
+        <div class="quiz-title-wrapper">
+          <h4 class="quiz__title title">Снятся ли Вам умершие люди?</h4>
+        </div>
+        <div class="quiz-button-wrapper">
+          <button
+            class="quiz__button button-orange delay--100"
+            @click="step = 5"
+          >
+            Да
+          </button>
+        </div>
+        <div class="quiz-button-wrapper">
+          <button
+            class="quiz__button button-orange delay--300"
+            @click="step = 5"
+          >
+            Нет
+          </button>
+        </div>
+        <div class="quiz-button-wrapper">
+          <button
+            class="quiz__button button-orange delay--200"
+            @click="step = 5"
+          >
+            Иногда
+          </button>
+        </div>
+        <div class="quiz-img">
           <img src="@/assets/image/round.png" alt="" />
         </div>
       </div>
@@ -150,24 +169,30 @@
           </div>
         </div>
       </div>
-      <div class="quiz-body">
-        <h4 class="quiz-body__title title">
-          Запись, которую Вы услышите, может шокировать людей с неокрепшей
-          психикой. Вы готовы узнать, что ждет именно Вас?
-        </h4>
-        <button
-          class="quiz-body__button button-orange delay--100"
-          @click="step = 6"
-        >
-          Да
-        </button>
-        <button
-          class="quiz-body__button button-orange delay--300"
-          @click="step = 6"
-        >
-          Затрудняюсь ответить
-        </button>
-        <div class="quiz-body-img">
+      <div class="quiz-wrapper">
+        <div class="quiz-title-wrapper">
+          <h4 class="quiz__title title">
+            Запись, которую Вы услышите, может шокировать людей с неокрепшей
+            психикой. Вы готовы узнать, что ждет именно Вас?
+          </h4>
+        </div>
+        <div class="quiz-button-wrapper">
+          <button
+            class="quiz__button button-orange delay--100"
+            @click="step = 6"
+          >
+            Да
+          </button>
+        </div>
+        <div class="quiz-button-wrapper">
+          <button
+            class="quiz__button button-orange delay--300"
+            @click="step = 6"
+          >
+            Затрудняюсь ответить
+          </button>
+        </div>
+        <div class="quiz-img">
           <img src="@/assets/image/round.png" alt="" />
         </div>
       </div>
@@ -181,7 +206,7 @@
 <script>
 import QuizBody from "@/components/quiz/QuizBody.vue";
 import QuizResult from "@/components/quiz/QuizResult.vue";
-import Footer from "@/components/Footer.vue";
+import FooterView from "@/components/FooterView.vue";
 import ResultInfo from "@/components/quiz/ResultInfo.vue";
 
 export default {
@@ -189,7 +214,7 @@ export default {
   components: {
     QuizBody,
     QuizResult,
-    Footer,
+    FooterView,
     ResultInfo,
   },
 
@@ -212,27 +237,6 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 50px 0;
-
-  &-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 35px;
-
-    &__title {
-      width: 60%;
-    }
-
-    &-img {
-      width: 89px;
-      height: 89px;
-      transform: translateX(-100%);
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
 
   &-top {
     display: flex;
@@ -259,8 +263,50 @@ export default {
     }
   }
 
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+  }
+
+  &-title-wrapper {
+    width: 60%;
+    margin-top: 60px;
+
+    h4 {
+      width: 100%;
+    }
+  }
+
+  &-button-wrapper {
+    width: auto;
+    max-width: 600px;
+    min-width: 300px;
+  }
+
+  &-img {
+    width: 89px;
+    height: 89px;
+    transform: translateX(-100%);
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   &-text {
     margin-top: 36px;
+  }
+
+  &__input {
+    font-family: Rob;
+    font-size: 14px;
+    padding: 25px 40px;
+    border-radius: 50px;
+    color: #202024;
+    border: none;
+    outline: none;
   }
 }
 
@@ -282,6 +328,15 @@ export default {
 @media screen and (max-width: 575.98px) {
   .quiz {
     &-top {
+      &-wrapper {
+        padding: 20px 40px;
+      }
+
+      &-img {
+        width: 85px;
+        height: 50px;
+      }
+
       &__text {
         font-size: 14px;
       }
@@ -292,6 +347,11 @@ export default {
 
       &__title {
         font-size: 16px;
+      }
+
+      &-img {
+        width: 52px;
+        height: 52px;
       }
 
       &__button {

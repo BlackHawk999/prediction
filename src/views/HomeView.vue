@@ -25,5 +25,6 @@ export default {
 <style lang="scss">
 .home {
   background: #202024;
+  overflow: hidden;
 }
 </style>
