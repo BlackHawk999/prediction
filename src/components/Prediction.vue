@@ -1,11 +1,11 @@
 <template>
-  <div class="prediction">
+  <div class="prediction" v-scrollanimation>
     <div class="container">
-      <div class="prediction-top-wrapper">
-        <div class="prediction-title">
+      <div class="prediction-top-wrapper" v-scrollanimation>
+        <div class="prediction-title" v-scrollanimation>
           <p class="prediction__title subtext">Онлайн предсказание</p>
         </div>
-        <div class="prediction-top">
+        <div class="prediction-top" v-scrollanimation>
           <div class="prediction-top-wrapper-img">
             <img src="@/assets/image/praying.png" alt="" />
           </div>
@@ -18,7 +18,7 @@
           </p>
         </div>
       </div>
-      <div class="prediction-main-wrapper">
+      <div class="prediction-main-wrapper" v-scrollanimation>
         <div class="prediction-body">
           <div class="prediction-body-wrapper-img">
             <img src="@/assets/image/prediction-img.png" alt="" />
@@ -45,6 +45,17 @@ export default {
 
   &-top-wrapper {
     padding: 0 30px;
+  }
+
+  .before-enter {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 2s ease-out;
+  }
+
+  .enter {
+    opacity: 1;
+    transform: translateY(0px);
   }
 
   &-main-wrapper {
