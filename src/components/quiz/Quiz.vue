@@ -89,23 +89,25 @@
             <div class="quiz-title-wrapper">
               <h4 class="quiz__title title">Укажите свою дату рождения:</h4>
             </div>
-            <div class="quiz-input-wrapper">
-              <input
-                class="quiz__input"
-                type="date"
-                placeholder="Год"
-                required
-                v-model="birthdate"
-              />
-            </div>
-            <div class="quiz-button-wrapper">
-              <button
-                class="quiz__button button-orange delay--300"
-                @click="fetchInfo"
-              >
-                Далее
-              </button>
-            </div>
+            <form class="quiz-form">
+              <div class="quiz-input-wrapper">
+                <input
+                  :class="[{ red: error }, 'quiz__input']"
+                  type="date"
+                  placeholder="Год"
+                  required
+                  v-model="birthdate"
+                />
+              </div>
+              <div class="quiz-button-wrapper">
+                <button
+                  class="quiz__button button-orange delay--300"
+                  @click.prevent="fetchInfo"
+                >
+                  Далее
+                </button>
+              </div>
+            </form>
           </div>
         </QuizBody>
         <QuizBody v-if="step === 4">
@@ -201,8 +203,8 @@
         <p v-if="step < 6" class="quiz-text subtext">
           Вопрос {{ this.step }}-5
         </p>
-        <Record v-if="step === 6"/>
-        <QuizResult v-if="step === 7" @call="step = 7" />
+        <Record v-if="step === 6" @change="step = 7" />
+        <QuizResult v-if="step === 7" @call="call" />
         <ResultInfo v-if="step === 8" />
       </div>
       <Loader v-if="loading" />
@@ -216,6 +218,7 @@ import QuizResult from "@/components/quiz/QuizResult.vue";
 import ResultInfo from "@/components/quiz/ResultInfo.vue";
 import Loader from "@/components/Loader.vue";
 import Record from "@/components/quiz/Record.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "quiz",
@@ -232,6 +235,7 @@ export default {
       step: 1,
       birthdate: "",
       loading: false,
+      error: false,
     };
   },
   computed: {
@@ -243,17 +247,32 @@ export default {
     },
   },
   methods: {
+    ...mapActions({
+      getData: "fetchUser",
+    }),
+
     next() {
       this.$emit = this.step;
     },
 
     fetchInfo() {
+      if (!this.birthdate) {
+        this.error = true;
+        return;
+      }
+
+      this.error = false;
       this.loading = true;
 
       setTimeout(() => {
         this.step = 4;
         this.loading = false;
       }, 3000);
+    },
+
+    async call() {
+      await this.getData(1);
+      this.step = 8;
     },
   },
 };
@@ -360,6 +379,12 @@ export default {
     margin-top: 36px;
   }
 
+  &-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
   &__input {
     font-family: Rob;
     font-size: 14px;
@@ -371,6 +396,10 @@ export default {
     color: #202024;
     border: none;
     outline: none;
+
+    &.red {
+      border: 1px solid red;
+    }
   }
 }
 
