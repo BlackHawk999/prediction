@@ -50,7 +50,7 @@ export default {
   .before-enter {
     opacity: 0;
     transform: translateY(100px);
-    transition: all 2s ease-out;
+    transition: all 2s;
   }
 
   .enter {

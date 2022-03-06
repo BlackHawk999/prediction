@@ -3,6 +3,7 @@
     <Intro />
     <Prediction />
     <Quiz />
+    <FooterView />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import Intro from "@/components/Intro.vue";
 import Prediction from "@/components/Prediction.vue";
 import Quiz from "@/components/quiz/Quiz.vue";
+import FooterView from "@/components/FooterView.vue";
 
 export default {
   name: "HomeView",
@@ -18,6 +20,7 @@ export default {
     Intro,
     Prediction,
     Quiz,
+    FooterView,
   },
 };
 </script>
@@ -25,6 +28,5 @@ export default {
 <style lang="scss">
 .home {
   background: #202024;
-  overflow: hidden;
 }
 </style>

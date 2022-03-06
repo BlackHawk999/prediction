@@ -39,12 +39,6 @@
         </button>
       </div>
     </div>
-    <div class="quiz-result-footer">
-      <p class="quiz-result-footer__text">
-        TERMENI SI CONDITII: ACESTA ESTE UN SERVICIU DE DIVERTISMENT. PRIN
-        FOLOSIREA LUI DECLARATI CA AVETI 18 ANI IMPLINITI,
-      </p>
-    </div>
   </div>
 </template>
 
@@ -134,6 +128,7 @@ export default {
     justify-content: center;
 
     &__button {
+      position: relative;
       font-family: Rob;
       font-size: 20px;
       color: #ffffff;
@@ -144,6 +139,7 @@ export default {
         rgba(50, 185, 73, 0.9) 100%
       );
       border-radius: 50px;
+      overflow: hidden;
       border: none;
       outline: none;
       cursor: pointer;
@@ -161,20 +157,22 @@ export default {
           left: calc(100% + 60px);
         }
       }
-    }
-  }
 
-  &-footer {
-    display: flex;
-    justify-content: center;
-
-    &__text {
-      font-family: Rob;
-      font-size: 12px;
-      line-height: 18px;
-      color: #9d9d9d;
-      text-transform: uppercase;
-      text-align: center;
+      &:after {
+        position: absolute;
+        content: "";
+        top: 0;
+        width: 50px;
+        height: 155px;
+        background: #fff;
+        animation-name: Blik;
+        animation-duration: 3500ms;
+        animation-iteration-count: infinite;
+        animation-delay: 0;
+        transform: rotate(35deg) translateY(-25%);
+        opacity: 0.2;
+        z-index: 10;
+      }
     }
   }
 }

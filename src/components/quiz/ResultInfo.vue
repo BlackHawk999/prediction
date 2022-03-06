@@ -54,6 +54,7 @@ export default {
 <style lang="scss" scoped>
 .result-info {
   overflow-x: auto;
+  width: 100%;
 
   &__table {
     font-family: Rob;
